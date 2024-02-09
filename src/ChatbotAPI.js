@@ -1,11 +1,26 @@
+import axios from "axios";
+
 const API = {
   GetChatbotResponse: async message => {
-    return new Promise(function(resolve, reject) {
-      setTimeout(function() {
-        if (message === "hi") resolve("Welcome to chatbot!");
-        else resolve("echo : " + message);
-      }, 2000);
-    });
+    if (message === "hi") return ("Welcome to chatbot!");
+    else {
+      const request = {
+        "promt": message
+      };
+      console.log(request);
+      try {
+        const res = await axios.post('http://127.0.0.1:8000/api/chat/', request, {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        return res.data.response;
+      }
+      catch(err)
+      {
+        return "API Error";
+      }
+    }
   }
 };
 
