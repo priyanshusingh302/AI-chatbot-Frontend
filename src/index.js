@@ -10,16 +10,18 @@ import API from "./ChatbotAPI";
 
 import "./styles.css";
 import Header from "./components/Header";
+import CustomInput from "./components/ContextInput";
 
 function Chatbot() {
   const [messages, setMessages] = useState([]);
+  const [context, setContext] = useState("");
 
   useEffect(() => {
     async function loadWelcomeMessage() {
       setMessages([
         <BotMessage
           key="0"
-          fetchMessage={async () => await API.GetChatbotResponse("hi")}
+          fetchMessage={async () => await API.GetChatbotResponse("hi", "")}
         />
       ]);
     }
@@ -31,17 +33,25 @@ function Chatbot() {
       <UserMessage key={messages.length + 1} text={text} />,
       <BotMessage
         key={messages.length + 2}
-        fetchMessage={async () => await API.GetChatbotResponse(text)}
+        fetchMessage={async () => await API.GetChatbotResponse(text, context)}
       />
     );
     setMessages(newMessages);
   };
 
   return (
-    <div className="chatbot">
-      <Header />
-      <Messages messages={messages} />
-      <Input onSend={send} />
+    <div className="container">
+      <div className="left-column">
+        <div className="header">&nbsp;Context</div>
+        <CustomInput setContext={setContext} />
+      </div>
+      <div className="right-column">
+        <div className="chatbot">
+          <Header />
+          <Messages messages={messages} />
+          <Input onSend={send} />
+        </div>
+      </div>
     </div>
   );
 }

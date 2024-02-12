@@ -1,10 +1,11 @@
 import axios from "axios";
 
 const API = {
-  GetChatbotResponse: async message => {
+  GetChatbotResponse: async (message, context) => {
     if (message === "hi") return ("Welcome to chatbot!");
     else {
       const request = {
+        "context": context,
         "promt": message
       };
       console.log(request);
@@ -16,8 +17,7 @@ const API = {
         });
         return res.data.response;
       }
-      catch(err)
-      {
+      catch (err) {
         return "API Error";
       }
     }
