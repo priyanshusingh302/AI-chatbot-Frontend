@@ -38,6 +38,8 @@
 
 .bot-message {
   float: left;
+  white-space: pre-line;
+  text-align: left;
   padding: 15px 20px;
   margin: 5px;
   border-radius: 20px 20px 20px 1px;
@@ -51,6 +53,7 @@
   padding: 15px 10px;
   margin: 10px;
   border-radius: 20px 20px 1px 20px;
+  white-space: pre-line;
   background: #cccccc;
   color: black;
 }
