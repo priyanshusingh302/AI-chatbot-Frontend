@@ -28,3 +28,12 @@ To set up the project locally, follow these steps:
 ```bash
    npm start
    ```
+## Demo 
+- Logic Test
+![ss0](/img/ss0.png)
+
+- Knowledge Test
+![ss1](/img/ss1.png)
+
+- Context Test
+![ss2](/img/ss2.png)
