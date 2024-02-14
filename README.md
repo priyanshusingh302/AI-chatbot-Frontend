@@ -2,6 +2,9 @@
 
 Welcome to the repository for the Chatbot Frontend developed using ReactJS. This project aims to provide a user-friendly interface for interacting with a chatbot using ReactJS framework.
 
+### API
+- https://github.com/priyanshusingh302/AI-chatbot-Backend
+
 ## Features
 
 - **Interactive Chat Interface**: Engage in conversations with the chatbot.
